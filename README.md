@@ -19,7 +19,9 @@ cd omarchy-chuck-yeager-nix64
 
 `setup.sh` copies the disk to your Nix64 shelf with a name derived from its SHA-256 hash, creates a PAL C64C with a 1541-II drive, and records a Nix64 generation. It leaves your original disk file alone. `play.sh` starts a fresh C64, loads the first program from drive 8, runs it, and opens the Nix64 window. The first load may take a few minutes. Nix64 handles the keyboard and joystick; the game uses **joystick port 2**.
 
-On the tested Eagle Soft disk, press Space when the Eagle Soft intro appears. Use joystick port 2 to select a flight mode at the game menu. Intro Flight reaches the cockpit.
+On the tested Eagle Soft disk, press Space when the Eagle Soft intro appears. In Nix64 Settings, enable **Keys as a joystick** so arrow keys and Space drive joystick port 2. Use those keys to select a flight mode at the game menu. Intro Flight reaches the cockpit.
+
+For a remote browser client, `./play.sh --no-window` runs the game without opening Chromium inside Omarchy. The Nix64 server still needs to be started separately with `nix64 serve`.
 
 To use a different disk image, run `./setup.sh` again with its path, then `./play.sh`.
 
