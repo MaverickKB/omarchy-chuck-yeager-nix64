@@ -46,5 +46,5 @@ fi
 
 c64ctl line RUN --machine "$machine" >/dev/null
 c64ctl warp off --machine "$machine" >/dev/null
-echo "Game started. Use joystick port 2 in Nix64."
+echo "Game started. Press Space at the Eagle Soft intro, then use joystick port 2."
 nix64
