@@ -2,6 +2,14 @@
 set -eu
 
 machine=chuck-yeager-aft
+open_window=yes
+if [ "${1:-}" = "--no-window" ] && [ "$#" -eq 1 ]; then
+  open_window=no
+elif [ "$#" -ne 0 ]; then
+  echo "Usage: $0 [--no-window]" >&2
+  exit 2
+fi
+
 config_root=${XDG_CONFIG_HOME:-"$HOME/.config"}
 if [ -n "${NIX64_HOME:-}" ]; then
   config_root=$NIX64_HOME/config
@@ -47,4 +55,6 @@ fi
 c64ctl line RUN --machine "$machine" >/dev/null
 c64ctl warp off --machine "$machine" >/dev/null
 echo "Game started. Press Space at the Eagle Soft intro, then use joystick port 2."
-nix64
+if [ "$open_window" = yes ]; then
+  nix64
+fi
